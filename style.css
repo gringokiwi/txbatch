@@ -1,0 +1,112 @@
+@layer base, utils, components;
+
+@import "@webtui/css/base.css";
+@import "@webtui/css/utils/box.css";
+@import "@webtui/css/components/button.css";
+@import "@webtui/css/components/badge.css";
+@import "@webtui/css/components/input.css";
+@import "@webtui/css/components/switch.css";
+@import "@webtui/css/components/typography.css";
+@import "@webtui/css/components/view.css";
+@import "@webtui/theme-catppuccin";
+
+main > section[box-="double"][shear-="top"] {
+  width: calc(100% - 1lh);
+  max-width: 30lh;
+  margin: 1lh auto;
+}
+
+main > section[box-="double"][shear-="top"] > p,
+main > section[box-="double"][shear-="top"] > form {
+  margin: 0 0.5lh;
+}
+
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > div
+  > div
+  > section[box-="square"]
+  > p,
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > div
+  > div
+  > section[box-="square"]
+  > input {
+  display: block;
+  width: calc(100% - 1lh);
+  margin: 0.25lh auto;
+}
+
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > div
+  > div
+  > section[box-="square"]
+  > button {
+  display: inline-block;
+  margin: 0.75lh 0 0.25lh 0.5lh;
+}
+
+main > section[box-="double"][shear-="top"] > p,
+main > section[box-="double"][shear-="top"] > form > div > p,
+main > section[box-="double"][shear-="top"] > form > div > h4,
+main > section[box-="double"][shear-="top"] > form > div > h5 {
+  min-height: 1lh;
+  margin-top: 0.5lh;
+}
+
+main > section[box-="double"][shear-="top"] > form > div > input {
+  width: 100%;
+  margin-top: 0.5lh;
+}
+
+/** buttons */
+main > section[box-="double"][shear-="top"] > form > footer {
+  margin: 0.25lh 0 -0.25lh;
+  display: flex;
+  gap: 0.5lh;
+}
+
+/** submit button */
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > footer
+  > button[type="submit"] {
+  margin-right: auto;
+  visibility: hidden;
+}
+
+/** other buttons */
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > footer
+  > button[type="button"] {
+  display: none;
+}
+
+/** error box */
+main > section[box-="double"][shear-="top"][variant-="red"] {
+  --box-border-color: var(--red);
+  visibility: hidden;
+}
+
+/** error text */
+main > section[box-="double"][shear-="top"] > p {
+  color: var(--red);
+}
+
+/** network switcher */
+main > footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5lh;
+  margin: 3lh auto;
+  visibility: hidden;
+}

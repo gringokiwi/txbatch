@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-webtui-theme="catppuccin-mocha">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>txbatch • arkade vtxo chain viewer</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/main.ts"></script>
+  <script>
+    document.documentElement.dataset.webtuiTheme =
+      window.matchMedia('(prefers-color-scheme: dark)').matches ? 'catppuccin-mocha' : 'catppuccin-latte'
+  </script>
+</head>
+
+<body>
+  <main>
+    <section box-="double" shear-="top" variant-="red">
+      <header>
+        <span is-="badge" variant-="red">error</span>
+      </header>
+      <p></p>
+    </section>
+    <section box-="double" shear-="top" variant-="foreground1">
+      <header>
+        <span is-="badge" variant-="foreground1">txbatch • vtxo chain viewer</span>
+      </header>
+      <form>
+        <div>
+          <p></p>
+        </div>
+        <footer>
+          <button is-="button" type="submit" variant-="foreground1" disabled>submit</button>
+          <button is-="button" type="button" variant-="background1" disabled>go back</button>
+          <button is-="button" type="button" variant-="background1" disabled>reset</button>
+        </footer>
+      </form>
+    </section>
+    <footer>
+      <input type="checkbox" is-="switch" disabled />
+      <p></p>
+    </footer>
+  </main>
+</body>
+
+</html>
