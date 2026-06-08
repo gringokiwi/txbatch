@@ -200,7 +200,7 @@ if (uniqueFormParamKeys.size) {
   }
   for (const [key, value] of Object.entries(params)) {
     if (typeof value === "undefined") continue;
-    if (Array.isArray(value)) {
+    if (value instanceof Set) {
       for (const item of value) {
         // addresses
         if (item instanceof ArkAddress) {
