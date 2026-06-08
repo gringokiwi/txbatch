@@ -15,31 +15,106 @@
 
 <body>
   <main>
-    <section box-="double" shear-="top" variant-="red">
+    <section box-="double" shear-="top">
       <header>
-        <span is-="badge" variant-="red">error</span>
+        <span is-="badge" variant-="background0">txbatch • vtxo chain viewer</span>
       </header>
-      <p></p>
-    </section>
-    <section box-="double" shear-="top" variant-="foreground1">
-      <header>
-        <span is-="badge" variant-="foreground1">txbatch • vtxo chain viewer</span>
-      </header>
-      <form>
-        <div>
-          <p></p>
-        </div>
+      <form tabindex="0">
+        <label>
+          user pubkey (x-only)
+          <input id="userPubkey" type="text" value="" readonly />
+        </label>
+        <label>
+          operator pubkey (x-only)
+          <input id="operatorPubkey" type="text" value="" readonly />
+        </label>
+        <label>
+          exit timelock (seconds)
+          <input id="exitTimelock" type="number" value="" readonly />
+        </label>
+        <label>
+          delegate pubkey (x-only)
+          <input id="delegatePubkey" type="text" value="" readonly />
+        </label>
+        <label>
+          address #1
+          <input id="address-0" type="text" value="" readonly />
+        </label>
+        <label>
+          script #1
+          <input id="script-0" type="text" value="" readonly />
+        </label>
+        <label>
+          transaction id
+          <input id="vtxo-txid" type="text" value="" readonly />
+        </label>
+        <label>
+          output index (vout)
+          <input id="vtxo-vout" type="number" value="" readonly />
+        </label>
+        <!--<section box-="square" shear-="top">
+          <header>
+            <span is-="badge" variant-="background0">output #1</span>
+          </header>
+          <div>
+            <label>
+              transaction id
+              <input id="output-txid-0" type="text" value="" readonly />
+            </label>
+            <label>
+              output index (vout)
+              <input id="output-vout-0" type="number" value="" readonly />
+            </label>
+            <label>
+              value
+              <input id="output-value-0" type="number" value="" readonly />
+            </label>
+            <label>
+              virtual status
+              <input id="output-state-0" type="text" value="" readonly />
+            </label>
+            <label>
+              script
+              <input id="output-script-0" type="text" value="" readonly />
+            </label>
+            <footer>
+              <button type="button" size-="small" data-txid="" data-vout="" disabled>fetch tx
+                chain</button>
+              <button type="button" size-="small" data-txid="" disabled>arkade.space</button>
+            </footer>
+          </div>
+        </section>-->
+        <!--<section box-="square" shear-="top">
+          <header>
+            <span is-="badge" variant-="background0">chain transaction #1</span>
+          </header>
+          <div>
+            <label>
+              transaction id
+              <input id="chain-tx-txid-0" type="text" value="" readonly />
+            </label>
+            <label>
+              type
+              <input id="chain-tx-type-0" type="text" value="" readonly />
+            </label>
+            <label>
+              hex
+              <input id="chain-tx-hex-0" type="text" value="" readonly />
+            </label>
+            <footer>
+              <button type="button" size-="small" data-txid="" disabled>arkade.space</button>
+              <button type="button" size-="small" data-txhex="" disabled>mempool.space</button>
+            </footer>
+          </div>
+        </section>-->
         <footer>
-          <button is-="button" type="submit" variant-="foreground1" disabled>submit</button>
-          <button is-="button" type="button" variant-="background1" disabled>go back</button>
-          <button is-="button" type="button" variant-="background1" disabled>reset</button>
+          <button type="submit" variant-="foreground1" disabled>submit</button>
+          <button type="button" variant-="background1" disabled>go back</button>
+          <button type="button" variant-="background1" disabled>reset</button>
         </footer>
       </form>
     </section>
-    <footer>
-      <input type="checkbox" is-="switch" disabled />
-      <p></p>
-    </footer>
+    <label>network: bitcoin<input id="network" type="checkbox" is-="switch" disabled /></label>
   </main>
 </body>
 

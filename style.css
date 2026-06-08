@@ -2,73 +2,109 @@
 
 @import "@webtui/css/base.css";
 @import "@webtui/css/utils/box.css";
-@import "@webtui/css/components/button.css";
+/** needed for titles */
 @import "@webtui/css/components/badge.css";
+/** needed for form inputs */
+@import "@webtui/css/components/button.css";
 @import "@webtui/css/components/input.css";
+/** needed for network switcher */
 @import "@webtui/css/components/switch.css";
+/** needed for h2-h6, p elements */
 @import "@webtui/css/components/typography.css";
-@import "@webtui/css/components/view.css";
+/** needed for loading spinner */
+@import "@webtui/css/components/spinner.css";
+/** theming */
 @import "@webtui/theme-catppuccin";
 
-main > section[box-="double"][shear-="top"] {
-  width: calc(100% - 1lh);
-  max-width: 30lh;
-  margin: 1lh auto;
+/** error box */
+main > section[box-="double"][shear-="top"][variant-="red"] {
+  --box-border-color: var(--red);
 }
 
-main > section[box-="double"][shear-="top"] > p,
-main > section[box-="double"][shear-="top"] > form {
-  margin: 0 0.5lh;
-}
-
-main
-  > section[box-="double"][shear-="top"]
-  > form
-  > div
-  > div
-  > section[box-="square"]
-  > p,
-main
-  > section[box-="double"][shear-="top"]
-  > form
-  > div
-  > div
-  > section[box-="square"]
-  > input {
-  display: block;
-  width: calc(100% - 1lh);
-  margin: 0.25lh auto;
-}
-
-main
-  > section[box-="double"][shear-="top"]
-  > form
-  > div
-  > div
-  > section[box-="square"]
-  > button {
-  display: inline-block;
-  margin: 0.75lh 0 0.25lh 0.5lh;
-}
-
-main > section[box-="double"][shear-="top"] > p,
-main > section[box-="double"][shear-="top"] > form > div > p,
-main > section[box-="double"][shear-="top"] > form > div > h4,
-main > section[box-="double"][shear-="top"] > form > div > h5 {
+/** error text */
+main > section[box-="double"][shear-="top"] > p {
+  color: var(--red);
   min-height: 1lh;
-  margin-top: 0.5lh;
+  margin: 0.5lh 1ch 0.25lh;
 }
 
-main > section[box-="double"][shear-="top"] > form > div > input {
-  width: 100%;
-  margin-top: 0.5lh;
-}
-
-/** buttons */
-main > section[box-="double"][shear-="top"] > form > footer {
-  margin: 0.25lh 0 -0.25lh;
+/** network switcher */
+main > label:has(input#network) {
   display: flex;
+  flex-direction: row-reverse;
+  gap: 2ch;
+  margin: 2lh auto 3lh;
+}
+
+/** main display box */
+main > section[box-="double"][shear-="top"] {
+  width: calc(100% - 1ch);
+  max-width: 600px;
+  margin: 1.5lh auto;
+}
+
+/** form (context inside the main box) */
+main > section[box-="double"][shear-="top"] > form,
+/** subsections (outputs + chain txs) */
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > section[box-="square"][shear-="top"]
+  > div {
+  width: calc(100% - 2ch);
+  margin: 0.5lh auto 0lh;
+  display: flex;
+  flex-direction: column;
   gap: 0.5lh;
+}
+
+main > section[box-="double"][shear-="top"] > form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25lh;
+}
+
+@media (min-width: 650px) {
+  main > section[box-="double"][shear-="top"] > form label {
+    flex-direction: row;
+    gap: 1ch;
+    white-space: nowrap;
+  }
+}
+
+main > section[box-="double"][shear-="top"] > form label > input {
+  width: 100%;
+}
+
+/** extra margin for first output / chain tx */
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > section[box-="square"][shear-="top"]:first-of-type {
+  margin-top: 0.25lh;
+}
+
+/** buttons for outputs / chain txs */
+main
+  > section[box-="double"][shear-="top"]
+  > form
+  > section[box-="square"][shear-="top"]
+  > div
+  > footer {
+  display: flex;
+  gap: 2ch;
+  margin-top: 0.5lh;
+}
+
+/** footer buttons (submit, go back, reset) */
+main > section[box-="double"][shear-="top"] > form > footer {
+  display: flex;
+  gap: 2ch;
+}
+
+/** hide disabled buttons */
+main > section[box-="double"][shear-="top"] > form > footer > button:disabled {
+  display: none;
 }
 
 /** submit button */
@@ -78,35 +114,14 @@ main
   > footer
   > button[type="submit"] {
   margin-right: auto;
-  visibility: hidden;
 }
 
-/** other buttons */
+/** loading spinner on submit */
 main
   > section[box-="double"][shear-="top"]
   > form
   > footer
-  > button[type="button"] {
-  display: none;
-}
-
-/** error box */
-main > section[box-="double"][shear-="top"][variant-="red"] {
-  --box-border-color: var(--red);
-  visibility: hidden;
-}
-
-/** error text */
-main > section[box-="double"][shear-="top"] > p {
-  color: var(--red);
-}
-
-/** network switcher */
-main > footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 0.5lh;
-  margin: 3lh auto;
-  visibility: hidden;
+  > button[type="submit"]
+  > span {
+  margin-left: 1ch;
 }
