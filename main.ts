@@ -524,11 +524,8 @@ if (txid && vout !== undefined && Number.isInteger(vout)) {
   });
   submitButton.disabled = false;
 } else if (
-  userPubkey &&
-  operatorPubkey &&
-  exitTimelock &&
-  delegatePubkey &&
-  _scripts.size
+  (userPubkey && operatorPubkey && exitTimelock && delegatePubkey) ||
+  (!userPubkey && _scripts.size)
 ) {
   /** Remove unneeded inputs */
   [
